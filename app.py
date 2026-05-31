@@ -637,12 +637,24 @@ def render_prediction_tab(
             "This is an educational ML prediction. Real prices can also depend on amenities, photos, season, events, cleaning fees, property condition, and demand."
         )
 
-        st.markdown("#### Nearby training data sample")
-        sample_map = data[
+                st.markdown("#### Nearby training data sample")
+
+        # The map is only for visual explanation. Some selected combinations may have
+        # very few rows after cleaning, so we handle empty filters safely.
+        nearby_data = data[
             (data["neighbourhood_group"] == neighbourhood_group)
             & (data["neighbourhood"] == neighbourhood)
-        ].sample(min(150, len(data)), random_state=RANDOM_STATE) if len(data) > 0 else data
-        if len(sample_map) > 0:
+        ].copy()
+
+        if nearby_data.empty:
+            nearby_data = data[data["neighbourhood_group"] == neighbourhood_group].copy()
+
+        if nearby_data.empty:
+            nearby_data = data.copy()
+
+        if not nearby_data.empty:
+            sample_size = min(150, len(nearby_data))
+            sample_map = nearby_data.sample(sample_size, random_state=RANDOM_STATE)
             st.map(sample_map[["latitude", "longitude"]])
         else:
             st.write("No map sample available for this selection.")
