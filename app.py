@@ -637,7 +637,7 @@ def render_prediction_tab(
             "This is an educational ML prediction. Real prices can also depend on amenities, photos, season, events, cleaning fees, property condition, and demand."
         )
 
-                st.markdown("#### Nearby training data sample")
+        st.markdown("#### Nearby training data sample")
 
         # The map is only for visual explanation. Some selected combinations may have
         # very few rows after cleaning, so we handle empty filters safely.
