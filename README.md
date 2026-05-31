@@ -17,10 +17,10 @@ This repository includes:
 
 ## Live App
 
-After deployment, add your Streamlit link here:
+After deployment, this is the Streamlit link:
 
 ```text
-https://your-app-name.streamlit.app
+https://airbnb-price-prediction-grrjnh7sda62n9cnzeqixm.streamlit.app/
 ```
 
 ---
