@@ -20,7 +20,7 @@ This repository includes:
 After deployment, this is the Streamlit link:
 
 ```text
-https://airbnb-price-prediction-grrjnh7sda62n9cnzeqixm.streamlit.app/
+https://airbnb-price-prediction-y.streamlit.app/
 ```
 
 ---
